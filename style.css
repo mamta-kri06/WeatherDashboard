@@ -49,13 +49,7 @@ Main container styling .weather-container {
   color: #6c757d;
   padding-top: 4px;
 }
-/* Carousel container styling */
-/* h2 {
-  margin-top: 15%;
-}
-h5 {
-  margin-top: 10%;
-} */
+
 .favorite-locations-container {
   display: flex;
   flex-wrap: wrap;
@@ -64,51 +58,48 @@ h5 {
   margin-top: 20px;
 }
 .favorite-card {
-  width: 200px;
+  width: 300px;
 }
 .carousel-item {
-  height: 350px; /* Set the height of the carousel items */
+  height: 350px; 
 }
 .carousel-item img {
-  object-fit: cover; /* Ensure images cover the area without distortion */
-  height: 100%; /* Full height of the carousel item */
+  object-fit: cover; 
+  height: 100%;
 }
 .carousel-caption {
   position: absolute;
-  bottom: 20px; /* Adjust the vertical position */
+  bottom: 20px;
   left: 50%;
-  transform: translateX(-50%); /* Center the caption */
-  color: #fff; /* White text */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Shadow for better readability */
+  transform: translateX(-50%); 
+  color: #fff; 
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 #favoriteLocations:hover {
   cursor: pointer;
 }
 @media (max-width: 999px) {
   .inputdiv {
-    /* Adjust input section styles */
     padding: 20px;
   }
 
   .user-input {
-    width: 100%; /* Full width for the input */
+    width: 100%;
     padding: 10px;
     font-size: 16px;
   }
 
   .search-btn {
-    width: 100%; /* Make the button full width */
+    width: 100%; 
     padding: 12px;
   }
 
   .highlight-item {
-    /* Style adjustments for highlights */
     padding: 15px;
   }
 
   .heading {
-    font-size: 1.5rem; /* Adjust heading size */
+    font-size: 1.5rem; 
   }
 
-  /* Additional styles for any other elements as needed */
 }
