@@ -1,0 +1,114 @@
+Main container styling .weather-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Current weather card styling */
+.current-weather {
+  background-color: #f0f4f8;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Weather forecast card styling */
+.forecast .day-forecast {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Font adjustments */
+.temperature {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.description,
+.city {
+  font-size: 1.2em;
+}
+
+.feelslike,
+.date {
+  font-size: 1em;
+  color: #6c757d;
+}
+
+#PValue,
+#HValue,
+#WValue,
+#SRValue,
+#SSValue {
+  font-size: 0.9em;
+  color: #6c757d;
+  padding-top: 4px;
+}
+/* Carousel container styling */
+/* h2 {
+  margin-top: 15%;
+}
+h5 {
+  margin-top: 10%;
+} */
+.favorite-locations-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+.favorite-card {
+  width: 200px;
+}
+.carousel-item {
+  height: 350px; /* Set the height of the carousel items */
+}
+.carousel-item img {
+  object-fit: cover; /* Ensure images cover the area without distortion */
+  height: 100%; /* Full height of the carousel item */
+}
+.carousel-caption {
+  position: absolute;
+  bottom: 20px; /* Adjust the vertical position */
+  left: 50%;
+  transform: translateX(-50%); /* Center the caption */
+  color: #fff; /* White text */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Shadow for better readability */
+}
+#favoriteLocations:hover {
+  cursor: pointer;
+}
+@media (max-width: 999px) {
+  .inputdiv {
+    /* Adjust input section styles */
+    padding: 20px;
+  }
+
+  .user-input {
+    width: 100%; /* Full width for the input */
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .search-btn {
+    width: 100%; /* Make the button full width */
+    padding: 12px;
+  }
+
+  .highlight-item {
+    /* Style adjustments for highlights */
+    padding: 15px;
+  }
+
+  .heading {
+    font-size: 1.5rem; /* Adjust heading size */
+  }
+
+  /* Additional styles for any other elements as needed */
+}
