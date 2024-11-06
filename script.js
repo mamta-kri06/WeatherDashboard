@@ -1,7 +1,5 @@
-// Initial default city
 const defaultCity = "Dhanbad";
 
-// Set up elements
 const userLocation = document.getElementById("userLocation");
 const weathericon = document.querySelector(".weathericon");
 const temperature = document.querySelector(".temperature");
@@ -15,18 +13,15 @@ const HValue = document.getElementById("HValue");
 const WValue = document.getElementById("WValue");
 const minValue = document.getElementById("MinValue");
 const maxValue = document.getElementById("MaxValue");
-const forecastContainer = document.querySelector(".forecast"); // Container to display forecast data
+const forecastContainer = document.querySelector(".forecast"); 
 
-// Function to fetch current weather data
-// Function to fetch current weather data
 function fetchWeather(cityName) {
-  const apiKey = "664b1d004cadbf77bfe12998bb540dcc"; // Replace with your actual API key
+  const apiKey = "664b1d004cadbf77bfe12998bb540dcc"; 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
 
   fetch(url)
     .then((response) => {
       if (!response.ok) {
-        // Check for 404 Not Found (invalid city)
         if (response.status === 404) {
           alert("Enter a valid city");
           userLocation.innerHTML = "";
@@ -38,10 +33,8 @@ function fetchWeather(cityName) {
     .then((data) => {
       console.log("Current Weather data:", data);
 
-      // Set city name and country code
       city.innerHTML = `${data.name}, ${data.sys.country}`;
 
-      // Set today's date and time
       const now = new Date();
       const options = {
         weekday: "short",
@@ -57,21 +50,18 @@ function fetchWeather(cityName) {
       // Set the weather icon
       const iconCode = data.weather[0].icon;
       const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@3x.png`;
-      weathericon.src = iconUrl; // Assuming weathericon is an <img> tag
+      weathericon.src = iconUrl; 
 
-      // Update temperature, feels like, and description
       temperature.innerHTML = `${Math.round(data.main.temp)}°C`;
       feelslike.innerHTML = `Feels Like: ${Math.round(data.main.feels_like)}°C`;
       description.innerHTML = data.weather[0].description;
 
-      // Set additional details: Pressure, Humidity, Wind Speed, Sunrise, and Sunset
       PValue.innerHTML = `${data.main.pressure} hPa`;
       WValue.innerHTML = `${data.wind.speed} m/s`;
       HValue.innerHTML = `${data.main.humidity}%`;
       minValue.innerHTML = `${Math.round(data.main.temp_min)}°C`;
       maxValue.innerHTML = `${Math.round(data.main.temp_max)}°C`;
 
-      // Convert sunrise and sunset from Unix to human-readable time
       const sunriseTime = new Date(
         data.sys.sunrise * 1000
       ).toLocaleTimeString();
@@ -87,9 +77,8 @@ function fetchWeather(cityName) {
     });
 }
 
-// Function to fetch 5-day forecast data
 function fetchForecast(cityName) {
-  const apiKey = "664b1d004cadbf77bfe12998bb540dcc"; // Replace with your actual API key
+  const apiKey = "664b1d004cadbf77bfe12998bb540dcc"; 
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric`;
 
   fetch(url)
@@ -108,11 +97,9 @@ function fetchForecast(cityName) {
     });
 }
 
-// Function to display 5-day forecast data
 function displayForecast(data) {
-  forecastContainer.innerHTML = ""; // Clear any previous forecast data
+  forecastContainer.innerHTML = ""; 
 
-  // Group data by day
   const dailyData = {};
   data.list.forEach((item) => {
     const date = new Date(item.dt * 1000).toLocaleDateString("en-US", {
@@ -126,11 +113,9 @@ function displayForecast(data) {
     dailyData[date].push(item);
   });
 
-  // Loop through each day's data and create forecast elements
   Object.keys(dailyData).forEach((date, index) => {
-    if (index >= 5) return; // Limit to 5 days
+    if (index >= 5) return; 
 
-    // Get the average temperature and the main weather for each day
     const dayData = dailyData[date];
     const temp = Math.round(
       dayData.reduce((sum, item) => sum + item.main.temp, 0) / dayData.length
@@ -139,7 +124,6 @@ function displayForecast(data) {
     const iconCode = dayData[0].weather[0].icon;
     const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 
-    // Create elements for each day’s forecast
     const dayForecast = document.createElement("div");
     dayForecast.classList.add("day-forecast");
     dayForecast.innerHTML = `
@@ -153,20 +137,17 @@ function displayForecast(data) {
   });
 }
 
-// Event listener to fetch weather based on user input
 function findUserLocation() {
-  const cityName = userLocation.value.trim() || defaultCity; // Use the input value or default city if empty
+  const cityName = userLocation.value.trim() || defaultCity; 
   fetchWeather(cityName);
   fetchForecast(cityName);
 }
 
-// Call fetchWeather and fetchForecast with default city when the page loads
 window.addEventListener("load", () => {
-  userLocation.value = ""; // Keep input field empty on load
+  userLocation.value = ""; 
   fetchWeather(defaultCity);
   fetchForecast(defaultCity);
 });
 
-// Optional: Add event listener to button for searching
-const searchButton = document.getElementById("searchButton"); // Assuming there's a button with this ID
+const searchButton = document.getElementById("searchButton"); 
 searchButton.addEventListener("click", findUserLocation);
