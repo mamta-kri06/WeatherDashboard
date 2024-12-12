@@ -41,7 +41,7 @@ const suggestionsList = document.getElementById("suggestions");
 function getSearchSuggestions() {
   const apiKey = "664b1d004cadbf77bfe12998bb540dcc";
   const query = userLocation.value.trim();
-  const url = `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=10&appid=${apiKey}`;
+  const url = `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${apiKey}`;
 
   fetch(url)
     .then((response) => {
