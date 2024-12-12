@@ -40,9 +40,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="">Maps</a></li>
-          <li class="nav-item"><a class="nav-link" href="">Contact</a></li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="#favoriteLocationsList"
+              style="margin-right: 20px; font-size: 21px; color: white"
+              >Favorites</a
+            >
+          </li>
         </ul>
       </div>
     </nav>
@@ -86,8 +91,7 @@
         data-bs-target="#myCarousel"
         data-bs-slide="prev"
       >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
+        <span class="carousel-control-prev-icon"></span>
       </button>
       <button
         class="carousel-control-next"
@@ -95,17 +99,17 @@
         data-bs-target="#myCarousel"
         data-bs-slide="next"
       >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
+        <span class="carousel-control-next-icon"></span>
       </button>
     </div>
     <!-- input -->
 
     <div class="container my-5">
+      <!-- container contains input ouput both sections  -->
       <div class="row">
         <!-- Weather Input Section -->
-        <div class="col-md-4 mb-4">
-          <div class="card p-4 text-center shadow-lg inputdiv">
+        <div class="col-md-4">
+          <div class="p-4 text-center shadow-lg inputdiv">
             <h4 class="mb-4">Search Weather</h4>
             <div class="input-group mb-3">
               <input
@@ -114,10 +118,7 @@
                 id="userLocation"
                 placeholder="Search for places"
               />
-              <button
-                class="btn btn-primary search-btn"
-                onclick="findUserLocation()"
-              >
+              <button class="btn btn-primary" onclick="findUserLocation()">
                 <i class="fa fa-search"></i>
               </button>
             </div>
@@ -134,7 +135,7 @@
             <p class="description text-capitalize mb-1">--</p>
             <hr />
             <p class="date mb-0">--</p>
-            <p class="city font-weight-bold">--</p>
+            <p class="city">--</p>
           </div>
           <div class="container">
             <!-- Save Favorite Button -->
@@ -149,20 +150,20 @@
               id="favoriteLocationsList"
               class="d-flex justify-content-center flex-column align-items-center my-3"
             >
-              <h5>Your Favorite Locations:</h5>
-              <ul class="list-group w-50" id="favoriteLocations"></ul>
+              <h5 class="text-center">Your Favorite Locations:</h5>
+              <ul class="list-group w-75" id="favoriteLocations"></ul>
             </div>
           </div>
         </div>
 
         <!-- Weather Output Section -->
         <div class="col-md-8">
-          <div class="card p-4 shadow-lg">
-            <h3 class="heading text-center mb-4">Today's Highlights</h3>
+          <div class="p-4 shadow-lg">
+            <h3 class="text-center mb-4">Today's Highlights</h3>
             <div class="row row-cols-2 row-cols-md-3 g-4">
               <!-- Humidity -->
               <div class="col">
-                <div class="highlight-item text-center p-3 bg-light rounded">
+                <div class="text-center p-3 bg-light rounded">
                   <h6>Humidity</h6>
                   <i class="fa-solid fa-droplet fa-2x text-primary mb-2"></i>
                   <h4 id="HValue" class="mb-0">--%</h4>
@@ -171,7 +172,7 @@
 
               <!-- Wind Speed -->
               <div class="col">
-                <div class="highlight-item text-center p-3 bg-light rounded">
+                <div class="text-center p-3 bg-light rounded">
                   <h6>Wind Speed</h6>
                   <i class="fa-solid fa-wind fa-2x text-primary mb-2"></i>
                   <h4 id="WValue" class="mb-0">-- m/s</h4>
@@ -180,7 +181,7 @@
 
               <!-- Pressure -->
               <div class="col">
-                <div class="highlight-item text-center p-3 bg-light rounded">
+                <div class="text-center p-3 bg-light rounded">
                   <h6>Pressure</h6>
                   <i
                     class="fa-solid fa-tachometer-alt fa-2x text-primary mb-2"
@@ -191,7 +192,7 @@
 
               <!-- mintemp-->
               <div class="col">
-                <div class="highlight-item text-center p-3 bg-light rounded">
+                <div class="text-center p-3 bg-light rounded">
                   <h6>Min Temperature</h6>
                   <i
                     class="fa-solid fa-temperature-low fa-2x text-primary mb-2"
@@ -202,7 +203,7 @@
 
               <!-- maxtemp -->
               <div class="col">
-                <div class="highlight-item text-center p-3 bg-light rounded">
+                <div class="text-center p-3 bg-light rounded">
                   <h6>Max Temperature</h6>
                   <i
                     class="fa-solid fa-temperature-high fa-2x text-warning mb-2"
@@ -213,7 +214,7 @@
 
               <!-- Sunrise and Sunset -->
               <div class="col">
-                <div class="highlight-item text-center p-3 bg-light rounded">
+                <div class="text-center p-3 bg-light rounded">
                   <h6>Sunrise & Sunset</h6>
                   <i class="fa-solid fa-sun fa-2x text-primary mb-1"></i>
                   <p class="mb-1"><span id="SRValue">--:-- AM</span></p>
@@ -224,7 +225,7 @@
             </div>
 
             <hr class="my-4" />
-            <h3 class="heading text-center mb-4">This Week's Highlights</h3>
+            <h3 class="text-center mb-4">This Week's Highlights</h3>
             <div class="forecast row row-cols-2 row-cols-md-3 g-3">
               <!-- Placeholder for weekly forecast cards -->
             </div>
