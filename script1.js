@@ -6,13 +6,13 @@ window.addEventListener("load", loadFavoriteLocations);
 saveFavoriteButton.addEventListener("click", saveFavoriteLocation);
 
 function saveFavoriteLocation() {
-  const currentCity = city.innerText; 
+  const currentCity = city.innerText;
   let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
   if (!favorites.includes(currentCity)) {
     favorites.push(currentCity);
     localStorage.setItem("favorites", JSON.stringify(favorites));
-    loadFavoriteLocations(); 
+    loadFavoriteLocations();
     alert(`${currentCity} added to favorites!`);
   } else {
     alert(`${currentCity} is already in your favorites.`);
@@ -26,7 +26,7 @@ function loadFavoriteLocations() {
 
   favorites.forEach((location) => {
     const listItem = document.createElement("li");
-    listItem.className = "list-group-item";
+    listItem.className = "list-group-item text-center";
     listItem.textContent = location;
     listItem.addEventListener("click", () => {
       fetchWeather(location);
